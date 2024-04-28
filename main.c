@@ -389,6 +389,7 @@ expr_t* parse_assign(parser_t* p){
 
     if(p->match(p, T_EQUAL)){
         if(e->expr_type != EXPR_VARIABLE){
+            free(e);
             p->err_manager.emit_error(
                 &p->err_manager,
                 "Expect variable name.\n"
